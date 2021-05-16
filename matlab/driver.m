@@ -4,12 +4,12 @@ w = 2.5;
 a = 3.5;
 w_ = w / a;
 J = 0.5;
-M = 10.6;% was 6
+M = 9;% was 6
 k = 0.14; % гидродинамический коэф
 a_t = a*sin(w_*t);
 w_t = a*w_*cos(w_*t);
 q_t = a*w_*w_*sin(w_*t);
-Mn = -J.*q_t + k.*abs(w_t).*w_t + M;
+Mn = 1.2*(-J.*q_t + k.*abs(w_t).*w_t + M);
 plot(Mn, 10*w_t)
 xlim([4 16])
 ylim([-35 35])
@@ -26,11 +26,4 @@ n0 = 5900/i;
 N_M = n0*(1 - m/(m_ * i * u));
 plot(m/1000, N_M)
 
-legend("Нагрузочна характеристика", "Механическая характеристика двигателя вместе с редуктором", "FontSize", 11)
-
-% i = 215 https://www.faulhaber.com/fileadmin/Import/Media/EN_2668_CR_DFF.pdf
-% mtotor    https://www.faulhaber.com/fileadmin/Import/Media/EN_32GPT_FMM.pdf
-
-% % faulhaber 3257 24cr with 38/2s 246
-% % faulhaber 3257 24cr with 38/2s 159
-% % RE 30 ∅30 mm, Graphite Brushes, 60 Watt GPX 32 406 or 326
+legend("Нагрузочна характеристика", "Механическая характеристика", "FontSize", 11)
