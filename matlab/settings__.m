@@ -14,9 +14,9 @@ full = a*k2;
 ir = tf([1], [1 0]);
 full_angle = full * ir;
 
-P = 1600;
-I = tf([76], [1 0]);
-D = tf([40 0], [0.0000000001 1]);
+P = 8000;
+I = tf([1200], [1 0]);
+D = tf([70 0], [0.0000000001 1]);
 PID = P + I + D;
 
 % full_correct = feedback(PID * full_angle, 1);
