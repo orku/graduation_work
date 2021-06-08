@@ -14,12 +14,16 @@ full = a*k2;
 ir = tf([1], [1 0]);
 full_angle = full * ir;
 
-P = 8000;
+P = 4200;
 I = tf([1200], [1 0]);
-D = tf([70 0], [0.0000000001 1]);
+D = 70 * 1/(tf(1, [1 0]));
 PID = P + I + D;
 
 % full_correct = feedback(PID * full_angle, 1);
 opts = bodeoptions;
 opts = bodeoptions('cstprefs');
 opts.XLim = [0.01 1000000];
+
+opt = stepDataOptions;
+opt.InputOffset = 1;
+opt.StepAmplitude = 2;

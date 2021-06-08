@@ -17,10 +17,10 @@ PID = P + I + D;
 
 W = w * PID;
 
-bode(W * 10);
-opts = bodeoptions;
-opts = bodeoptions('cstprefs');
-% opts.XLim = [0.01 1000000];
-opts.TickLabel.FontSize = 14;
-% freqs([5.272 210.9 10.02], [3.226e-06 0.02016 1 0 0])
-% set(gca,'XScale','lin')
+% bode(W * 10);
+% opts = bodeoptions;
+% opts = bodeoptions('cstprefs');
+% % opts.XLim = [0.01 1000000];
+% opts.TickLabel.FontSize = 14;
+% % freqs([5.272 210.9 10.02], [3.226e-06 0.02016 1 0 0])
+% % set(gca,'XScale','lin')

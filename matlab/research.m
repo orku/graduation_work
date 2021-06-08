@@ -1,26 +1,30 @@
-a  = 0.2;
-A = a : 0.01 : 50000;
+a  = 1;
+% A = a : 0.01 : 1000;
+A = a;
 k = 1;
-A_ = 0.4;
-q = (k/pi())*(pi()/2 + asin(1 - 2.*a./A) + 2.*(1 - 2*a./A).*sqrt((1 - a./A) .* a./A));
-q_ = -((4 * k * a * (1 - a./A)./(pi() * A)));
+
+% q = (k/pi())*(pi()/2 + asin(1 - 2.*a./A) + 2.*(1 - 2*a./A).*sqrt((1 - a./A) .* a./A));
+% q_ = ((4 * k * a * (1 - a ./ A)./(pi() .* A)));
+
+q = (2*k/pi())*(pi()/2 - asin(a./A) - (a./A) .* (sqrt(1 - (a./A).^2)));
+q_ = 0;
+
 W_n = q + 1i .* q_;
-SS = 1 ./W_n;
+SS = -1 ./W_n;
 V_s = real(SS);
 U_s = imag(SS);
 
-% qc = (k/pi())*(pi()/2 + asin(1 - 2*a/A_) + 2*(1 - 2*a/A_)*sqrt((1 - a/A_) * a/A_));
-% q_c = -((4 * k * a * (1 - a/A_)/(pi() * A_)));
-
-w = 0 : 0.1 : 10000;
-% syms s;
-% Q_s = 3.226e-06  * s^4 + 0.02016 * s^3 + s^2;
-% R_s = 9.226 * s^2 + 553.6 * s + 158.2;
-% Q_w = subs(Q_s, s, 1i * w);
-
-Q_s = 3.226e-06  .* (1i .* w).^4 + 0.02016 .* (1i .* w).^3 + (1i .* w).^2;
-R_s = 9.226 .* (1i .* w).^2 + 553.6 .* (1i .* w) + 158.2;
-
-W = R_s./Q_s;
-
-W_n = q + 1i .* q_;
+% figure
+% plot(V_s, U_s)
+% title('ACHX')
+% 
+% Lm = -20 * log10(sqrt(q.^2 + q_ .^2));
+% phi = (-pi - atan(q_./ q)) * 180/pi;
+% 
+% figure
+% plot(A, phi)
+% title('phi')
+% 
+% figure
+% plot(A, Lm)
+% title('Lm')
