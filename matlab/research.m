@@ -1,5 +1,5 @@
-a  = 2.1;
-A = a : 0.1 : 2.9;
+a  = 0.2;
+A = a : 0.1 : 10;
 % A = a;
 k = 1;
 % 
@@ -14,14 +14,20 @@ SS = -1 ./W_n;
 V_s = real(SS);
 U_s = imag(SS);
 
-% figure
-plot(V_s, U_s, '+')
-title('ACHX')
+plot(A, q)
+hold on
+plot(A, q_)
 set(gcf,'color','w');
 grid on
 
-Lm = -20 * log10(sqrt(q.^2 + q_ .^2));
-phi = (-pi - atan(q_./ q)) * 180/pi;
+% figure
+% plot(V_s, U_s)
+% title('ACHX')
+% set(gcf,'color','w');
+% grid on
+% 
+% Lm = -20 * log10(sqrt(q.^2 + q_ .^2));
+% phi = (-pi - atan(q_./ q)) * 180/pi;
 
 % figure
 % plot(A, phi)
